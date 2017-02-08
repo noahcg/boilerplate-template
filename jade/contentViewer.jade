@@ -1,0 +1,53 @@
+#featuredAssetContainer
+  #featuredAssets.clearfix
+    .featuredAssetsTitleContainer
+      h2
+        span #{data.sectionTitles.recentlyAddedContent}
+    ul
+      li
+        a(href='test.com')
+          .featuredAssetsHeading
+            img(src='images/assetImage5.png')
+          .featuredAssetsContent
+            h3 #{data.lorem.titleShort}
+            p.featuredAssetContent #{data.lorem.contentLong}
+            .featuredAssetCTALeft #{data.buttons.viewNow}
+              span.featuredAssetCTARight
+                i.icon-arrow
+      li
+        a(href='test.com')
+          .featuredAssetsHeading
+            img(src='images/assetImage6.png')
+          .featuredAssetsContent
+            h3 #{data.lorem.titleMed}
+            p.featuredAssetContent #{data.lorem.contentShort}
+            .featuredAssetCTALeft #{data.buttons.viewNow}
+              span.featuredAssetCTARight
+                i.icon-arrow
+      li
+        a(href='test.com')
+          .featuredAssetsHeading
+            img(src='images/assetImage7.png')
+          .featuredAssetsContent
+            h3 #{data.lorem.titleLong}
+            p.featuredAssetContent #{data.lorem.contentMed}
+            .featuredAssetCTALeft #{data.buttons.viewNow}
+              span.featuredAssetCTARight
+                i.icon-arrow
+  #assetsListing
+    .assetsListingTitleContainer
+      h2 
+        span #{data.sectionTitles.browseOurLibrary}
+    ul#assetsList
+      each listItem in data.content.assetListingTitles
+        li
+          a(href="google.com")
+            .assetsListingHeading
+              h3 #{listItem.title}
+            .assetsListingContent
+              p #{data.lorem.contentLong}
+              p.assetCTA #{data.cta.continueReading}
+    #assetListingFader
+    .assetListingExpand
+      p #{data.buttons.loadMore}
+        i.icon-play
