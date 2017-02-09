@@ -1,35 +1,28 @@
-var s, Menus = {
-
-  settings: {
-    socialMenu: $('.micrositeSocialMenu'),
-    infoPanel: $('.sponsorInfoPanel.show'),
-    sponsorIcon: $('#sponsoredBy i'),
-    shareIcon: $('.icon-share')
-  },
-
-  init: function() {
-    s = this.settings;
-    this.bindEvents();
-  },
-
-  bindEvents: function() {
-    s.shareIcon.on("click", function() {
-      Menus.clickButton();
-    });
-  },
-
-  clickButton: function() {
-    console.log('hi');
+function menus() {
+  return {
+    socialMenu: {
+      open: function() {
+        $('.micrositeSocialMenu').toggleClass('show');
+        $('.sponsorInfoPanel.show').removeClass('show');
+        $(this).toggleClass('active');
+        $('#sponsoredBy i').removeClass('active');
+      }
+    },
+    sponsoredContent: {
+      open: function() {
+        $('.sponsorInfoPanel').toggleClass('show');
+        $('.micrositeSocialMenu.show').removeClass('show');
+        $(this).find('i').toggleClass('active');
+        $('.icon-share').removeClass('active');
+        $('.sponsoredByText').toggleClass('hide');
+      },
+      hide: function() {
+        $('.sponsorInfoPanel,.micrositeSocialMenu').removeClass('show');
+        $('#sponsoredBy i,.icon-share').removeClass('active');
+        $('.sponsoredByText').removeClass('hide');
+      }
+    }
   }
 }
 
-module.exports = Menus;
-
-// var socialMenu = function(){
-//     $('.icon-share').on('click',function(){
-//       $('.micrositeSocialMenu').toggleClass('show');
-//       $('.sponsorInfoPanel.show').removeClass('show');
-//       $(this).toggleClass('active');
-//       $('#sponsoredBy i').removeClass('active');
-//     });
-//   }
+module.exports = menus;
