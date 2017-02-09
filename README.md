@@ -19,7 +19,7 @@ npm install
 ```
 
 
-This will install gulp, gulp-browserify, gulp-clean-css, gulp-data, gulp-jade, gulp-jsonminify, gulp-load-plugins, gulp-ruby-sass, yargs
+This will install gulp, gulp-browserify, gulp-clean-css, gulp-data, gulp-jade, gulp-jsonminify, gulp-ruby-sass
 
 ## Built With
 
@@ -27,6 +27,7 @@ This will install gulp, gulp-browserify, gulp-clean-css, gulp-data, gulp-jade, g
 * [Jade](https://naltatis.github.io/jade-syntax-docs/) - For the markup and templating
 * [Sass](http://sass-lang.com/) - For the styling
 * [Gulp](http://gulpjs.com/) - A task running used for automating builds
+* [Browserify](http://browserify.org/) - A modular script loader
 
 ## Authors
 
