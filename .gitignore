@@ -42,6 +42,6 @@ ehthumbs.db
 Thumbs.db
 
 # Directories
-*www
 *deploy
 *node_modules
+*.sass-cache

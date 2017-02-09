@@ -14,8 +14,6 @@ embedded.template = function ( $ ) {
         $doc    = $(document),
         $body   = $('body'),
 
-        $tabDropDown_a = $('#tabDropDown a'),
-
         self;
 
     return {

@@ -5,7 +5,8 @@ var gulp = require('gulp'),
     sass = require('gulp-ruby-sass'),
     cleanCSS = require('gulp-clean-css'),
     browserify = require('gulp-browserify'),
-    uglify = require('gulp-uglify');
+    uglify = require('gulp-uglify'),
+    gulpSequence = require('gulp-sequence');
 
 gulp.task('jsonminify', function () {
     return gulp.src(['jade/data.jade'])
@@ -31,7 +32,7 @@ gulp.task('sass', function() {
 gulp.task('minify-css', function() {
   return gulp.src('www/css/*.css')
     .pipe(cleanCSS())
-    .pipe(gulp.dest('deploy/css/min'));
+    .pipe(gulp.dest('deploy/css'));
 });
 
 gulp.task('scripts', function() {
@@ -47,5 +48,5 @@ gulp.task('uglifyJS', function () {
       .pipe(gulp.dest('deploy/js'))
 });
 
-gulp.task('default', ['jade', 'sass', 'scripts']);
+gulp.task('default', gulpSequence(['jsonminify'], ['jade', 'sass', 'scripts']));
 gulp.task('production', ['minify-css', 'uglifyJS']);
