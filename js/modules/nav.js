@@ -5,6 +5,12 @@ function nav() {
     },
     activeTab: function(tabLabel) {
       $('#tabDropDown a').text(tabLabel);
+    },
+    hideMenu: function() {
+      $('#navList').removeClass('show');
+    },
+    toggleMenu: function() {
+      $('#navList').toggleClass('show');
     }
   }
 }

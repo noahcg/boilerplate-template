@@ -34,4 +34,4 @@ nav
   ul#navList
     each navItem in data.content.nav
       li
-        a(href="http://www.google.com") #{navItem.label}
+        a(href='#{navItem.link}') #{navItem.label}

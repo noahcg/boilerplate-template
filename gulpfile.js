@@ -9,9 +9,9 @@ var gulp = require('gulp'),
     gulpSequence = require('gulp-sequence');
 
 gulp.task('jsonminify', function () {
-    return gulp.src(['jade/data.jade'])
-        .pipe(jsonminify())
-        .pipe(gulp.dest('jade/min'));
+  return gulp.src(['jade/data.jade'])
+      .pipe(jsonminify())
+      .pipe(gulp.dest('jade/min'));
 });
 
 gulp.task('jade', function() {
@@ -36,17 +36,22 @@ gulp.task('minify-css', function() {
 });
 
 gulp.task('scripts', function() {
-    // Single entry point to browserify
-    gulp.src('js/script-responsive.js')
-        .pipe(browserify())
-        .pipe(gulp.dest('www/js'))
+  // Single entry point to browserify
+  gulp.src('js/script-responsive.js')
+      .pipe(browserify())
+      .pipe(gulp.dest('www/js'))
+});
+
+gulp.task('copy', function() {
+  gulp.src('js/video.js')
+      .pipe(gulp.dest('www/js'))
 });
 
 gulp.task('uglifyJS', function () {
-  gulp.src('js/script-responsive.js')
+  gulp.src('www/js/*.js')
       .pipe(uglify())
       .pipe(gulp.dest('deploy/js'))
 });
 
-gulp.task('default', gulpSequence(['jsonminify'], ['jade', 'sass', 'scripts']));
-gulp.task('production', ['minify-css', 'uglifyJS']);
+gulp.task('default', gulpSequence(['jsonminify'], ['jade', 'sass', 'scripts', 'copy']));
+gulp.task('production', gulpSequence('default', ['minify-css', 'uglifyJS']));
