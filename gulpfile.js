@@ -26,7 +26,7 @@ gulp.task('jade', function() {
 gulp.task('sass', function() {
   return sass('sass/style-responsive.scss')
         .on('error', sass.logError)
-        .pipe(gulp.dest('www/css'))
+        .pipe(gulp.dest('www/css'));
 });
 
 gulp.task('minify-css', function() {
@@ -39,18 +39,18 @@ gulp.task('scripts', function() {
   // Single entry point to browserify
   gulp.src('js/script-responsive.js')
       .pipe(browserify())
-      .pipe(gulp.dest('www/js'))
+      .pipe(gulp.dest('www/js'));
 });
 
 gulp.task('copy', function() {
-  gulp.src('js/video.js')
-      .pipe(gulp.dest('www/js'))
+  gulp.src(['js/video.js', 'js/socialFeeds.js'])
+      .pipe(gulp.dest('www/js'));
 });
 
 gulp.task('uglifyJS', function () {
   gulp.src('www/js/*.js')
       .pipe(uglify())
-      .pipe(gulp.dest('deploy/js'))
+      .pipe(gulp.dest('deploy/js'));
 });
 
 gulp.task('default', gulpSequence(['jsonminify'], ['jade', 'sass', 'scripts', 'copy']));

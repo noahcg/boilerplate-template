@@ -1,4 +1,3 @@
-include ../min/data
 doctype html
 //if lt IE 7
   html.no-js.lt-ie9.lt-ie8.lt-ie7(dir='ltr', lang='en')
@@ -10,6 +9,7 @@ doctype html
 html.no-js.gt-ie8(dir='ltr', lang='en')
   // <![endif]
   head
+    include ../min/data
     meta(charset='utf-8')
     meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
     title #{data.meta.title}
@@ -35,7 +35,6 @@ html.no-js.gt-ie8(dir='ltr', lang='en')
     script(src='http://cdn.ttgtmedia.com/rms/ux/responsive/js/responsive.min.js?v=6.49')
     script(type='text/javascript', src='http://cdn.ttgtmedia.com/rms/ux/javascript/writeCapture.js')
     script(type='text/javascript', src='http://cdn.ttgtmedia.com/rms/ux/javascript/jquery.writeCapture.js')
-    //- script(src='javascript/video.js')
     script.
       (function() { var d=document,h=d.getElementsByTagName('head')[0],s=d.createElement('script'); s.type='text/javascript'; s.async=true; s.src='http://s.dpmsrv.com/dpm_b4c96d80854dd27e76d8cc9e21960eebda52e962.min.js'; h.appendChild(s); })();
     script(type='text/javascript').
@@ -51,6 +50,8 @@ html.no-js.gt-ie8(dir='ltr', lang='en')
     link(rel='stylesheet', href='')
     link(rel='stylesheet', href='')
     link(rel='stylesheet', href='css/style-responsive.css')
+    script(src='js/video.js')
+    script(src='js/socialFeeds.js')
     //- script(src='javascript/handlebars.js')
     //- script(src='javascript/jquery.menu-aim.js')
     script.

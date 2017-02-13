@@ -38,11 +38,12 @@ embedded.template = function ( $ ) {
               .on( 'click', '#tabDropDown', navInstance.toggleMenu )
               .on( 'click', '#navList li', navInstance.hideMenu )
               .on( 'click', '.assetListingExpand', cvInstance.expand );
+              
 
           navInstance.activeItem('activeTab');
           navInstance.activeTab($('#navList .activeTab').text());
 
-          this.assetsLists;
+          self.assetLists();
 
         },
 
