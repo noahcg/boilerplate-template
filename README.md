@@ -23,10 +23,10 @@ This will install gulp, gulp-browserify, gulp-clean-css, gulp-data, gulp-jade, g
 
 ## Built With
 
-* [Atom](https://atom.io/) - The IDE used
+* [Atom](https://atom.io/) - IDE
 * [Jade](https://naltatis.github.io/jade-syntax-docs/) - For the markup and templating
 * [Sass](http://sass-lang.com/) - For the styling
-* [Gulp](http://gulpjs.com/) - A task running used for automating builds
+* [Gulp](http://gulpjs.com/) - A task runner used for automating scripts
 * [Browserify](http://browserify.org/) - A modular script loader
 
 ## Authors
