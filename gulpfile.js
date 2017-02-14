@@ -36,7 +36,6 @@ gulp.task('minify-css', function() {
 });
 
 gulp.task('scripts', function() {
-  // Single entry point to browserify
   gulp.src('js/script-responsive.js')
       .pipe(browserify())
       .pipe(gulp.dest('www/js'));
@@ -47,11 +46,16 @@ gulp.task('copy', function() {
       .pipe(gulp.dest('www/js'));
 });
 
+gulp.task('copy-images', function() {
+  gulp.src('www/images/*')
+      .pipe(gulp.dest('deploy/images'));
+});
+
 gulp.task('uglifyJS', function () {
   gulp.src('www/js/*.js')
       .pipe(uglify())
       .pipe(gulp.dest('deploy/js'));
 });
 
-gulp.task('default', gulpSequence(['jsonminify'], ['jade', 'sass', 'scripts', 'copy']));
-gulp.task('production', gulpSequence('default', ['minify-css', 'uglifyJS']));
+gulp.task('default', gulpSequence(['jsonminify'], ['jade', 'sass', 'scripts', 'copy', 'copy-images']));
+gulp.task('build', gulpSequence('default', ['minify-css', 'uglifyJS']));
